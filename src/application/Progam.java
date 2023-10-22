@@ -36,6 +36,8 @@ public class Progam {
         product.removeProducts(removeProduct);
 
         System.out.println("Updated data: " + product);
+
+        System.out.println("The end...");
         sc.close();
     }
 }
