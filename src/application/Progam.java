@@ -1,8 +1,8 @@
 package application;
 
-import entities.Triangles;
+import entities.Product;
 
-import javax.swing.tree.TreeCellRenderer;
+import java.sql.SQLOutput;
 import java.util.Locale;
 import java.util.Scanner;
 
@@ -11,30 +11,31 @@ public class Progam {
         Locale.setDefault(Locale.US);
         Scanner sc = new Scanner(System.in);
 
-        Triangles x, y;
-        x = new Triangles();
-        y = new Triangles();
+        Product product = new Product();
 
-        System.out.println("Enter the measyres of triangle X: ");
-        x.a = sc.nextDouble();
-        x.b = sc.nextDouble();
-        x.c = sc.nextDouble();
+        System.out.println("Enter product data:");
 
-        System.out.println("Enter the measyres of triangle Y: ");
-        y.a = sc.nextDouble();
-        y.b = sc.nextDouble();
-        y.c = sc.nextDouble();
+        System.out.print("Name: ");
+        product.name = sc.nextLine();
+        System.out.print("Price: ");
+        product.price = sc.nextDouble();
+        System.out.print("Quantity in stock: ");
+        product.quantity = sc.nextInt();
 
-        double area = x.area();
 
-        double areaY = y.area();
+        System.out.println(product);
 
-        System.out.printf("Triangle X area %.4f%n", area);
+        System.out.println("Enter the number of products to be added in stock");
+        int addProduct = sc.nextInt();
+        product.addProducts(addProduct);
 
-        System.out.printf("Triangle X area %.4f%n", areaY);
+        System.out.println("Updated data: " + product);
 
-        System.out.println((areaY > area)? "Y" : "X");
+        System.out.println("Enter the number of products to be removed from stock");
+        int removeProduct = sc.nextInt();
+        product.removeProducts(removeProduct);
 
+        System.out.println("Updated data: " + product);
         sc.close();
     }
 }
